@@ -1,0 +1,13 @@
+node_modules
+dist
+target
+coverage
+typings
+maven
+test/e2e/screenshots
+package-lock.json
+*npm-debug.log
+.history
+.yo-rc.json
+serverless
+.env*.local

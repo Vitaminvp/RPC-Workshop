@@ -1,0 +1,81 @@
+{
+  "name": "@wix/bm-flow",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "Vitalii Ovcharenko",
+    "email": "vitaliiov@wix.com"
+  },
+  "scripts": {
+    "start": "yoshi-flow-bm start",
+    "build": "yoshi-flow-bm build",
+    "test": "npm run test:unit && npm run test:sled",
+    "test:unit": "yoshi-flow-bm test",
+    "test:sled": "sled-test-runner remote",
+    "lint": "yoshi-flow-bm lint",
+    "pretest": "yoshi-flow-bm previewLink",
+    "posttest": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "npm run lint"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.5",
+    "@types/chance": "^1.0.6",
+    "@types/node": "^14.0.0",
+    "@types/react": "^16.9.0",
+    "@wix/sled-test-runner": "^1.0.0",
+    "@wix/yoshi-flow-bm": "^5.0.0",
+    "husky": "~4.2.1",
+    "lint-staged": "^10.0.7",
+    "puppeteer": "^5.5.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "typescript": "~4.1.2"
+  },
+  "dependencies": {
+    "wix-style-react": "^9.0.0"
+  },
+  "jest": {
+    "preset": "@wix/yoshi-flow-bm"
+  },
+  "perfer": {
+    "bundleSize": {
+      "files": [
+        {
+          "glob": "./dist/statics/*.min.js",
+          "maxSize": "200kb"
+        },
+        {
+          "glob": "./dist/statics/module.bundle.min.js",
+          "maxSize": "20kb"
+        },
+        {
+          "glob": "./dist/statics/module.dev.bundle.min.js",
+          "maxSize": "20kb"
+        }
+      ]
+    }
+  },
+  "wix": {
+    "artifact": {
+      "platforms": [
+        "business-manager"
+      ],
+      "groupId": "com.wixpress",
+      "artifactId": "bm-flow",
+      "targets": {
+        "static": true
+      }
+    }
+  },
+  "wallaby": {
+    "autoDetect": true
+  }
+}

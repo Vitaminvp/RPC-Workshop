@@ -1,0 +1,21 @@
+{
+  "$schema": "target/schemas/.application.schema.json",
+  "moduleId": "BM_FLOW",
+  "appDefinitionId": "dcab53a5-f0a9-4b5e-a35b-f7133eb7adf6",
+  "isCoreService": true,
+  "routeNamespace": "bm-flow",
+  "translations": {
+    "enabled": true
+  },
+  "sentry": {
+    "DSN": "https://4401307028ca45d6ba2d3de67b9975d0@sentry.wixpress.com/2432",
+    "id": "4401307028ca45d6ba2d3de67b9975d0",
+    "projectName": "bm-flow-s2",
+    "teamName": "apps",
+    "errorMonitor": true
+  },
+  "experiments": {
+    "centralized": true
+  },
+  "enabledByExperiments": ["specs.infra.yoshi-bm.ChangeMe"]
+}
