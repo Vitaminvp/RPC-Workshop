@@ -10,5 +10,17 @@
       "bm-flow"
     ],
     "ignore_first_request_roundtrip": true
+  },
+  {
+    "appName": "bm-flow-pages-index",
+    "notifications": {
+      "slack_channels": [
+        "bm-flow-urgent"
+      ]
+    },
+    "deploy_annotations": [
+      "bm-flow"
+    ],
+    "ignore_first_request_roundtrip": true
   }
 ]

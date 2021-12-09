@@ -17,5 +17,7 @@
   "experiments": {
     "centralized": true
   },
-  "enabledByExperiments": ["specs.infra.yoshi-bm.ChangeMe"]
+  "enabledByExperiments": [
+    "specs.infra.yoshi-bm.ChangeMe"
+  ]
 }

@@ -5,25 +5,14 @@
 import { Page } from 'puppeteer';
 import { injectBMOverrides } from '@wix/yoshi-flow-bm/sled';
 import { TextTestkit } from 'wix-style-react/dist/testkit/puppeteer';
+import { ID } from '../src/api/comments.api';
 
 describe('happy flow', () => {
   let _page: Page;
 
-  const SLED_DEFAULT_MSID = 'eeaf3519-1406-45f0-a8ea-a59a4ecbc1a6';
-
   beforeEach(async () => {
     const { page } = await sled.newPage({
-      authType: 'free-user', // TODO: This is a shared user, Change that! See: https://bo.wix.com/wix-docs/fe-guild/infra/sled/getting-started/test-user
-
-      experiments: [
-        {
-          // TODO: Replace with your own experiment
-          // For more information, visit:
-          // https://bo.wix.com/pages/yoshi/docs/business-manager-flow/deployment#experiments
-          key: 'specs.infra.yoshi-bm.ChangeMe',
-          val: 'true',
-        },
-      ],
+      authType: 'free-user',
     });
 
     _page = page;
@@ -33,17 +22,9 @@ describe('happy flow', () => {
       appConfig: require('../target/module-sled.merged.json'),
     });
 
-    const url = `https://www.wix.com/dashboard/${SLED_DEFAULT_MSID}/bm-flow`;
+    const bmUrl = `https://www.wix.com/dashboard/${ID}/cc-2-2021-ambassador`;
 
-    await _page.goto(url, {
-      waitUntil: 'networkidle2',
-    });
-  });
-
-  afterEach(async () => {
-    if (_page) {
-      _page.close();
-    }
+    await _page.goto(bmUrl);
   });
 
   it('should render dashboard home for authenticated user', async () => {
@@ -53,6 +34,6 @@ describe('happy flow', () => {
     });
 
     const text = await textTestkit.getText();
-    expect(text).toMatch(/Get started .+here.+/);
+    expect(text).toMatch(/WLzxZYFByk - uCRenoxaiP/);
   });
 });
